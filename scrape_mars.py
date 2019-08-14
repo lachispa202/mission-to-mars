@@ -1,6 +1,7 @@
 from splinter import Browser
 from bs4 import BeautifulSoup as bs
 import time
+import pandas as pd
 
 
 def init_browser():
@@ -66,7 +67,21 @@ def scrape():
     # Grab text of first tweet
     mars_weather = results[0].text
     
+
+    # # --- Use Pandas to scrape Mars Space Facts ---
+    # tables = pd.read_html('https://space-facts.com/mars/')
+
+    # # Take second table for Mars facts
+    # df = tables[1]
+
+    # # Rename columns and set index
+    # df.columns=['description', 'value']
+    # df.set_index('description', inplace=True)
     
+    # # Convert table to html
+    # mars_facts_table = [df.to_html(classes='data', header=True)]
+
+
 
     # --- Visit USGS Astrogeology Site ---
     browser.visit('https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars')
@@ -149,6 +164,7 @@ def scrape():
         "news_paragraph": news_p,
         "featured_image": featured_img,
         "weather": mars_weather,
+        # "mars_facts": mars_facts_table,
         "hemispheres": hemisphere_image_urls
     }
 

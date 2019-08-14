@@ -7,21 +7,48 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Mars Facts</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../static/styles.css">
 </head>
 
-<body>
-  <div class="container-fluid">
-    <div class="jumbotron text-center">
-      <h1>Mission to Mars</h1>
-      <p>Learn about Mars</p>
-      <p><a class="btn btn-primary btn-lg" href="http://127.0.0.1:5000/scrape" role="button">Get Data!</a></p>
+<header class="masthead">
+    <div class="container h-100">
+      <div class="row h-100 align-items-center">
+        <div class="col-12 text-center"  id="vpadding">
+          <h1 class="font-weight-light" style="color:white">Mission to Mars</h1>
+          <p class="lead" style="color:white">Get your Mars facts here!</p>
+          <p><a class="btn btn-primary btn-lg" style="background-color: #FF9D6F; border: 0px;" href="http://127.0.0.1:5000/scrape" role="button">Get Data!</a></p>
+        </div>
+      </div>
     </div>
-    <img src="{{ mars.featured_image }}" alt="featured image">
-    <h2>Latest Mars News:</h2>
-    <h3>{{ mars.news_title }}</h3>
-    <h3>{{ mars.news_paragraph }}</h3>
-  </div>
-  </div>
+  </header>
+
+<body>
+
+    <div class="row" style="background-color: #FFDDCD;">
+      <div class="col-md-6">
+        <h2>Latest Mars News:</h2>
+        <h3>{{ mars.news_title }}</h3>
+        <p>{{ mars.news_paragraph }}</p>
+      </div>
+
+      <div class="col-md-6 text-center" style="display: inline-block;">
+        <img src="../static/news.png" style="width: 300px; height: 300px;">
+      </div>
+    </div> <!-- Row Close -->
+
+  <!-- <img src="{{ mars.featured_image }}" class="banner" alt="featured image"> -->
+
+    <div class="row" style="background-color: #663926; color: white;">
+      <div class="col-md-8">
+        <img src="{{ mars.featured_image }}" class="img-fluid" style="height: 400px;">
+      </div>
+
+      <div class="col-md-4">
+        <h2>Current Weather on Mars:</h2>
+        <p>{{ mars.weather }}</p>
+      </div>
+    </div>
+
 </body>
 
 </html>
