@@ -70,12 +70,13 @@
 
 <div class="container-fluid" style="background-color: #99857A;">
 
+<!-- Mars Hemispheres -->
 {% for dict in mars.hemispheres %}
     <div class="col-md-6">
-      <div class="card" style="width: 20rem;">
+      <div class="card" style="width: 31rem;">
         <img class="card-img-top" id="scale_id" src="{{ dict.img_url }}">
           <div class="card-body">
-            <h4 class="card-title">{{ dict.title }}</h4>
+            <h4 class="card-title text-center">{{ dict.title }}</h4>
           </div>
         </div>
     </div>
