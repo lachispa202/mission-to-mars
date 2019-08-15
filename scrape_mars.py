@@ -68,18 +68,18 @@ def scrape():
     mars_weather = results[0].text
     
 
-    # # --- Use Pandas to scrape Mars Space Facts ---
-    # tables = pd.read_html('https://space-facts.com/mars/')
+    # --- Use Pandas to scrape Mars Space Facts ---
+    tables = pd.read_html('https://space-facts.com/mars/')
 
-    # # Take second table for Mars facts
-    # df = tables[1]
+    # Take second table for Mars facts
+    df = tables[1]
 
-    # # Rename columns and set index
-    # df.columns=['description', 'value']
-    # df.set_index('description', inplace=True)
+    # Rename columns and set index
+    df.columns=['description', 'value']
+    df.set_index('description', inplace=True)
     
-    # # Convert table to html
-    # mars_facts_table = [df.to_html(classes='data', header=True)]
+    # Convert table to html
+    mars_facts_table = df.to_html(classes='data', header=False)
 
 
 
@@ -164,7 +164,7 @@ def scrape():
         "news_paragraph": news_p,
         "featured_image": featured_img,
         "weather": mars_weather,
-        # "mars_facts": mars_facts_table,
+        "mars_facts": mars_facts_table,
         "hemispheres": hemisphere_image_urls
     }
 

@@ -24,30 +24,93 @@
 
 <body>
 
-    <div class="row" style="background-color: #FFDDCD;">
-      <div class="col-md-6">
-        <h2>Latest Mars News:</h2>
-        <h3>{{ mars.news_title }}</h3>
-        <p>{{ mars.news_paragraph }}</p>
-      </div>
-
-      <div class="col-md-6 text-center" style="display: inline-block;">
-        <img src="../static/news.png" style="width: 300px; height: 300px;">
-      </div>
-    </div> <!-- Row Close -->
-
-  <!-- <img src="{{ mars.featured_image }}" class="banner" alt="featured image"> -->
-
-    <div class="row" style="background-color: #663926; color: white;">
-      <div class="col-md-8">
-        <img src="{{ mars.featured_image }}" class="img-fluid" style="height: 400px;">
-      </div>
-
-      <div class="col-md-4">
-        <h2>Current Weather on Mars:</h2>
-        <p>{{ mars.weather }}</p>
-      </div>
+<!-- Mars News -->
+<div class="container-fluid">  
+  <div class="row" style="background-color: #FFDDCD;">
+    <div class="col-md-6" style="padding-left: 5%; padding-top: 5%;">
+      <h2>Latest Mars News:</h2>
+      <h3>{{ mars.news_title }}</h3>
+      <p>{{ mars.news_paragraph }}</p>
     </div>
+
+    <div class="col-md-5 text-center" style="display: inline-block;">
+      <img src="../static/news.png" style="width: 300px; height: 300px;">
+    </div>
+  </div> 
+</div>
+
+<!-- Mars Weather & Featured Image -->
+<div class="container-fluid">      
+  <div class="row" style="background-color: #663926; color: white;">
+    <div class="col-md-6">
+      <img src="{{ mars.featured_image }}" class="img-fluid" style="height: 400px;">
+    </div>
+
+    <div class="col-md-6">
+      <h2>Current Weather on Mars:</h2>
+      <p>{{ mars.weather }}</p>
+    </div>
+  </div>
+</div>
+
+<!-- Mars Facts -->
+<div class="container-fluid">
+  <div class="row" style="background-color: #FF9E76;">
+    <div class="col-md-6" style="padding-left: 5%;">
+      <h2>Mars Facts</h2>
+      <p>{{ mars.mars_facts|safe }}</p>
+    </div>
+
+    <div class="col-md-6 text-center" style="display: inline-block;">
+      <img src="../static/mars.png" style="width: 300px; height: 300px;">
+    </div>
+  </div> 
+</div>
+
+
+<div class="container-fluid" style="background-color: #99857A;">
+
+{% for dict in mars.hemispheres %}
+    <div class="col-md-6">
+      <div class="card" style="width: 20rem;">
+        <img class="card-img-top" id="scale_id" src="{{ dict.img_url }}">
+          <div class="card-body">
+            <h4 class="card-title">{{ dict.title }}</h4>
+          </div>
+        </div>
+    </div>
+{% endfor %}
+</div>
+
+
+
+<!-- Mars Hemispheres -->
+<!-- <div class="container-fluid" style="background-color: #99857A;">
+
+  <div class="row">
+    <div class="col-md-6 text-center">
+        <img class="scale" src="https://astrogeology.usgs.gov/cache/images/cfa62af2557222a02478f1fcd781d445_cerberus_enhanced.tif_full.jpg" alt="Cerberus Hemisphere">
+        <h3>Cerberus Hemsiphere</h3>
+    </div>
+
+    <div class="col-md-6 text-center">
+        <img class="scale" src="https://astrogeology.usgs.gov/cache/images/3cdd1cbf5e0813bba925c9030d13b62e_schiaparelli_enhanced.tif_full.jpg" alt="Schiaparelli Hemisphere">
+        <h3>Schiaparelli Hemsiphere</h3>
+    </div> -->
+  <!-- </div> Row Close -->
+
+  <!-- <div class="row">
+    <div class="col-md-6 text-center">
+        <img class="scale" src="https://astrogeology.usgs.gov/cache/images/ae209b4e408bb6c3e67b6af38168cf28_syrtis_major_enhanced.tif_full.jpg" alt="Syrtis Major Hemisphere">
+        <h3>Syrtis Major Hemsiphere</h3>
+    </div>
+
+    <div class="col-md-6 text-center">
+        <img class="scale" src="https://astrogeology.usgs.gov/cache/images/7cf2da4bf549ed01c17f206327be4db7_valles_marineris_enhanced.tif_full.jpg" alt="Valles Marineris Hemisphere">
+        <h3>Valles Marineris Hemsiphere</h3>
+    </div> -->
+  <!-- </div> Row Close -->
+<!-- </div> Container Close -->
 
 </body>
 
