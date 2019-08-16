@@ -76,17 +76,17 @@
   <h1 class="text-center">Hemispheres of Mars</h1>
   <br>
 {% for dict in mars.hemispheres %}
-    <div class="col-md-6">
+    <div class="col-md-6 text-center">
       <div class="card text-center" style="width: 32rem;">
-        <img class="card-img-top" id="scale_hemi" src="{{ dict.img_url }}">
-          <div class="card-body">
+        <img class="card-img-top text-center" id="scale_id" src="{{ dict.img_url }}">
+          <div class="card-body text-center">
             <h4 class="card-title text-center">{{ dict.title }}</h4>
           </div>
         </div>
-    </div> <!-- Column Close -->
+    </div>
 {% endfor %}
-</div> <!-- Row Close -->
-</div> <!-- Container Close -->
+</div>
+</div>
 
 
 </body>
