@@ -76,10 +76,9 @@ def scrape():
 
     # Rename columns and set index
     df.columns=['description', 'value']
-    df.set_index('description', inplace=True)
     
     # Convert table to html
-    mars_facts_table = df.to_html(classes='data', header=False, table_id="class='table-borderless'")
+    mars_facts_table = df.to_html(classes='data table', index=False, header=False, border=0)
 
 
 
