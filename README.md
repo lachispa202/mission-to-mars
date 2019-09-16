@@ -17,3 +17,11 @@ Next, was scraping Mars facts from the [Space Facts]( https://space-facts.com/ma
 
 Lastly, I wanted to grab the images and names of all four of Mars’ hemispheres from the [USGS Astrogeology]( https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars
 ) page. I first searched for the hemisphere titles with BeautifulSoup and stored those names in a list, `hemi_names`. Then for the hemispheres, I searched for all thumbnail links and iterated through the results with a conditional, checking if the thumbnail element contained an image. If true, the relative image path was taken and combined with the main URL, and the full image URL was appended to an empty list (`thumbnail_links`) outside of the loop. To obtain the full-sized images of the hemispheres, I then iterated through each link in `thumbnail_links`, searching for all `img` elements with a `wide-image` class. The results were used to retrieve the full image path of the hemispheres, with the URLs being stored in a list, `full_imgs`. To match the hemisphere name to the correct image link, I zipped together `hemi_names` and `full_imgs` and iterated through that zipped object, first appending the hemisphere title to an empty dictionary as a key, and the image URL as the value, and then appending that dictionary to an empty list. 
+
+After all the code was checked, it was then transferred from the notebook to a Python file and used to create a scraping function. The results of all the scraping was then stored as a dictionary to be returned at the end of the function. 
+
+**Flask**
+
+In a separate file, Flask was used to trigger the scrape function, update the Mongo database with the results, and then return that record of data from the database on a webpage. 
+
+To access the scrape route through the webpage, a button was linked to the appropriate Flask route in the `index.html` file. The remainder of that HTML file was formatted with Bootstrap to display the results from the scrape.
