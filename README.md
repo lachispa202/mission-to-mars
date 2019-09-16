@@ -6,7 +6,7 @@ Use BeautifulSoup, Splinter, and Pandas to scrape five different webpages relate
 
 **Scraping Mars Data**
 
-<img align="right" src="https://github.com/lorijta92/mission-to-mars/blob/master/images/mtm-ss-all.png?raw=true">
+<img align="right" src="https://github.com/lorijta92/mission-to-mars/blob/master/static/mtm-ss-all.png?raw=true">
 
 Scraping was first done in a Jupyter notebook to test the code as it was written. After importing the necessary dependencies, I connected to the chromedriver and set up my browser to open each webpage I needed to scrape. I first scraped the [NASA Mars News](https://mars.nasa.gov/news/?page=0&per_page=40&order=publish_date+desc%2Ccreated_at+desc&search=&category=19%2C165%2C184%2C204&blank_scope=Latest) website for the title and text of the most recent article, storing the results in variables to be referenced later. To do this, I used BeautifulSoup  to parse through the HTML and search for the appropriate elements and classes that contained the information I needed with `soup.find_all()`. Because the results come back as a list, I indexed the first item and took the text of that. 
 
