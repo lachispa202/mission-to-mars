@@ -26,4 +26,6 @@ After all the code was checked, it was then transferred from the notebook to a P
 
 In a separate file, Flask was used to trigger the scrape function, update the Mongo database with the results, and then return that record of data from the database on a webpage. 
 
-To access the scrape route through the webpage, a button was linked to the appropriate Flask route in the `index.html` file. The remainder of that HTML file was formatted with Bootstrap to display the results from the scrape.
+An instance of Flask was created, and then I used PyMongo to establish a connection to the MongoDB server. With this connection, I used the `/scrape` route to run the scrape function located in the imported `scrape_mars.py` file. I then updated the Mongo database with the new collection from the scrape, using `update` and `upsert=True`. The end of this route redirects to the home route. The home route searches for one record of data in the Mongo database and then renders the `index.html` template with that record. 
+
+In `index.html`, the `/scrape` route was linked to a button, which a user could click to initiate the scrape. The remainder of that HTML file was formatted with Bootstrap to display the results from the scrape.
